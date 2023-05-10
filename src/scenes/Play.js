@@ -5,7 +5,7 @@ class Play extends Phaser.Scene {
     }
     preload(){
         this.load.image('plx_back', './assets/background1.png');
-        this.load.image('platform', './assets/jungle_platform.png');
+        this.load.image('platform', './assets/truck.png');
         this.load.image('window','./assets/window.png');
         this.load.image('char', './assets/dino.png');
 //        this.load.image('particle','./assets/emmiter_graphicy.png');
@@ -13,8 +13,9 @@ class Play extends Phaser.Scene {
     create(){
         this.plx_back=this.add.tileSprite(0,-30,2150,1646,'plx_back').setOrigin(0,0).setScale(.45);
         const platforms = this.physics.add.staticGroup();
+        platforms.create(450, 500, 'platform').setScale(.8);
+
         this.add.sprite(440,317,"window").setScale(.49);
-        platforms.create(0, 0, 'platform');
         // platforms.create(600, 400, 'platform');
         // platforms.create(50, 250, 'platform');
 
