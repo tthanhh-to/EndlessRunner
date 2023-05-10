@@ -1,3 +1,12 @@
+/*
+ Thanh To
+ game title
+ approximate hours spent on project
+ creative tilt justification
+assets
+https://jesse-m.itch.io/jungle-pack
+https://arks.itch.io/dino-characters
+ */
 // keep me honest
 'use strict';
 // console.log("hello world!");
@@ -20,7 +29,12 @@ let config = {
 //             }
 //         }
 //     },
-
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 200 },
+        }
+    },
     scene: [ Title, Play ]
           //, Play, GameOver]
 }
