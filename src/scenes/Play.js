@@ -3,13 +3,13 @@ class Play extends Phaser.Scene {
     constructor() {
       super("playScene");
     } 
+
     create(){
         this.physics.world.gravity.y = 2600;
         this.plx_back=this.add.tileSprite(0,-30,2150,1646,'plx_back').setOrigin(0,0).setScale(.45);
-        //const platforms = this.physics.add.staticGroup();
         this.gtruck=new Truck(this,450,500,'platform').setScale(.8);
         this.add.sprite(440,317,"window").setScale(.49);
-        this.hand=this.physics.add.sprite(200,60,'hand_atlas','hand1');
+        this.hand=this.physics.add.sprite(200,-100,'hand_atlas','hand1').setScale(.5);
         this.anims.create({
             key:"jump",
             frameRate:10,
@@ -19,42 +19,36 @@ class Play extends Phaser.Scene {
                 end:5
             })
         });
-        this.hand.setSize(200,630);
+        this.hand.setSize(250,530);
         this.hand.setDebugBodyColor(0x00FF00);
-        // this.hand.setBounce(0.2);
+        this.hand.setBounce(0);
+//        this.physics.add.collider(this.hand, this.gtruck);
         this.hand.setCollideWorldBounds(true);
-        this.physics.add.collider(this.hand, this.gtruck);
+        let groundBound = this.physics.add.sprite(960, 640);
+        groundBound.body.setSize(960,70);
+        groundBound.setDebugBodyColor(0xFACADE);
+        groundBound.setCollideWorldBounds(true);
+        // this.physics.add.collider(this.groundBound, this.gtruck);
+
+
+        // this.truckGroup = this.add.group({
+        //     runChildUpdate: true    // make sure update runs on group children
+        // });
+        // // wait a few seconds before spawning barriers
+        // this.time.delayedCall(2500, () => { 
+        //     this.addTruck();
+        // });
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
+
+
     update(){
-        this.plx_back.tilePositionX += 2.5;
-        if(!this.gameOver) {
-            this.gtruck.update();
-        }
+        this.plx_back.tilePositionX += 5;
+        // if(!this.gameOver) {
+        //     this.gtruck.update();
+        // }
         if(Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.hand.anims.play('jump');
         }
-	    // // this.hand.isGrounded = this.hand.body.touching.down;
-	    // if(this.hand.isGrounded) {
-	    // 	this.jumps = this.MAX_JUMPS;
-	    // 	this.jumping = false;
-	    // } else {
-	    // 	this.alien.anims.play('jump');
-	    // }
-        // // allow steady velocity change up to a certain key down duration
-        // // see: https://photonstorm.github.io/phaser3-docs/Phaser.Input.Keyboard.html#.DownDuration__anchor
-	    // if(this.jumps > 0 && Phaser.Input.Keyboard.DownDuration(cursors.up, 150)) {
-	    //     this.alien.body.velocity.y = this.JUMP_VELOCITY;
-	    //     this.jumping = true;
-	    //     this.upKey.tint = 0xFACADE;
-	    // } else {
-	    // 	this.upKey.tint = 0xFFFFFF;
-	    // }
-        // // finally, letting go of the UP key subtracts a jump
-        // // see: https://photonstorm.github.io/phaser3-docs/Phaser.Input.Keyboard.html#.UpDuration__anchor
-	    // if(this.jumping && Phaser.Input.Keyboard.UpDuration(cursors.up)) {
-	    // 	this.jumps--;
-	    // 	this.jumping = false;
-        // }
     }
 }
