@@ -3,9 +3,7 @@
  game title
  approximate hours spent on project
  creative tilt justification
-assets
-https://jesse-m.itch.io/jungle-pack
-https://arks.itch.io/dino-characters
+help with sprites: https://www.youtube.com/watch?v=ElAmJj8Tfo8
  */
 // keep me honest
 'use strict';
@@ -19,21 +17,14 @@ let config = {
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-//     physics: {
-//         default: 'arcade',
-//         arcade: {
-//             //debug: true,
-//             gravity: {
-//                 x: 0,
-//                 y: 0
-//             }
-//         }
-//     },
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 200 },
-            debug:true,
+            //debug: true,
+            gravity: {
+                x: 0,
+                y: 0
+            }
         }
     },
     scene: [Load, Title, Play ]

@@ -10,8 +10,18 @@ class Play extends Phaser.Scene {
         // let gtruck=platforms.create(450, 500, 'platform').setScale(.8);
         this.gtruck=new Truck(this,450,500,'platform').setScale(.8);
         this.add.sprite(440,317,"window").setScale(.49);
-        this.hand=this.physics.add.sprite(200,190,'char','hand1');
-        this.hand.setBounce(0.2);
+        this.hand=this.physics.add.sprite(200,190,'hand1');
+        this.anims.create({
+            key:"jump",
+            frameRate:10,
+            frames: this.anims.generateFrameNames("hand", {
+                prefix:"hand",
+                start: 1,
+                end:4
+            })
+        });
+
+//        this.hand.setBounce(0.2);
         this.hand.setCollideWorldBounds(true);
         /*
          The next power of two value from the height of the Fill Pattern frame.
@@ -27,10 +37,8 @@ class Play extends Phaser.Scene {
         if(!this.gameOver) {
             this.gtruck.update();
         }
-        let jump= this.add.sprite(200,190,'hand');
-        
         if(Phaser.Input.Keyboard.JustDown(keySPACE)) {
-            jump.anims.play('jump');
+            this.hand.anims.play('jump');
         }
 	    // // this.hand.isGrounded = this.hand.body.touching.down;
 	    // if(this.hand.isGrounded) {
