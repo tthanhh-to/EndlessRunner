@@ -6,10 +6,10 @@ class Title extends Phaser.Scene {
     }
     create() {
         let titleConfig = {
-            fontFamily: 'Courier Prime',
+            fontFamily: 'Bungee Shade',
             fontSize: '28px',
   //          backgroundColor: '#ffeb7a',
-            color: '#843605',
+            color: '#FFFFFF',
             align: 'center',
             padding: {
                 top: 5,
@@ -17,9 +17,9 @@ class Title extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-      this.add.text(20, 20, "Endless Runner Game", titleConfig);
+      this.add.text(20, 20, "Highway Hopper", titleConfig);
       this.add.text(20, 60, "Created by Thanh To", titleConfig);
-      this.add.text(20, 500, "Press space bar to continue", titleConfig);
+      this.add.text(20, 500, "Press space bar to to jump\n Press -> to start game", titleConfig);
       keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
     update() {
