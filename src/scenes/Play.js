@@ -25,10 +25,10 @@ class Play extends Phaser.Scene {
 //        this.physics.add.collider(this.hand, this.gtruck);
         this.hand.setCollideWorldBounds(true);
         let groundBound = this.physics.add.sprite(960, 640);
-        groundBound.body.setSize(960,70);
+        groundBound.body.setSize(960,200);
         groundBound.setDebugBodyColor(0xFACADE);
         groundBound.setCollideWorldBounds(true);
-        // this.physics.add.collider(this.groundBound, this.gtruck);
+        this.physics.add.collider(this.hand, this.gtruck);
 
 
         // this.truckGroup = this.add.group({

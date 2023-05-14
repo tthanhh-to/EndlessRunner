@@ -1,11 +1,3 @@
-// class Truck extends Phaser.Physics.Matter.Image
-// {
-// 	constructor(scene, x, y, texture, options)
-// 	{
-// 		super(scene.matter.world, x, y, texture, 0, options)
-// 		scene.add.existing(this)
-// 	}
-// }
 class Truck extends Phaser.Physics.Arcade.Sprite {
     constructor(scene,x,y,texture,frame){
         super(scene, x,y,texture,frame);
@@ -13,9 +5,8 @@ class Truck extends Phaser.Physics.Arcade.Sprite {
         // set up physics sprite
         this.parentScene.add.existing(this);    // add to existing scene, displayList, updateList
         this.parentScene.physics.add.existing(this);    // add to physics system
-        this.setVelocityX(100);            // make it go!
+        this.setVelocityX(-100);            // make it go!
         this.setImmovable();     
-        this.setCollideWorldBounds(true);
         this.body.allowGravity = false;
         // this.newTruck = true;                 // custom property to control Truck spawning
         // // scene.add.existing(this);   // add to existing, displayList, updateList
