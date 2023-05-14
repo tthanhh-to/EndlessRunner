@@ -7,29 +7,23 @@ class Play extends Phaser.Scene {
         this.physics.world.gravity.y = 2600;
         this.plx_back=this.add.tileSprite(0,-30,2150,1646,'plx_back').setOrigin(0,0).setScale(.45);
         //const platforms = this.physics.add.staticGroup();
-        // let gtruck=platforms.create(450, 500, 'platform').setScale(.8);
         this.gtruck=new Truck(this,450,500,'platform').setScale(.8);
         this.add.sprite(440,317,"window").setScale(.49);
-        this.hand=this.physics.add.sprite(200,190,'hand1');
+        this.hand=this.physics.add.sprite(200,60,'hand_atlas','hand1');
         this.anims.create({
             key:"jump",
             frameRate:10,
-            frames: this.anims.generateFrameNames("hand", {
+            frames: this.anims.generateFrameNames("hand_atlas", {
                 prefix:"hand",
                 start: 1,
-                end:4
+                end:5
             })
         });
-
-//        this.hand.setBounce(0.2);
+        this.hand.setSize(200,630);
+        this.hand.setDebugBodyColor(0x00FF00);
+        // this.hand.setBounce(0.2);
         this.hand.setCollideWorldBounds(true);
-        /*
-         The next power of two value from the height of the Fill Pattern frame.
-        */
-
-        //  this.potWidth = GetPowerOfTwo(displayFrame.width);
-        // this.potHeight = displayFrame.height;
-        // this.fillCanvas = CanvasPool.create2D(this, this.potWidth, this.potHeight);
+        this.physics.add.collider(this.hand, this.gtruck);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
     update(){
