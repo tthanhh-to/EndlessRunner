@@ -33,12 +33,13 @@ let config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 200 },
+            debug:true,
         }
     },
-    scene: [ Title, Play ]
+    scene: [Load, Title, Play ]
           //, Play, GameOver]
 }
 
 // define game
 let game = new Phaser.Game(config);
- let keyF, keyR, keyLEFT, keyRIGHT, keySPACE;
+ let keySPACE;
