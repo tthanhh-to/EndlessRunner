@@ -18,12 +18,14 @@ class Title extends Phaser.Scene {
             fixedWidth: 0
         }
       this.add.text(20, 20, "Highway Hopper", titleConfig);
-      this.add.text(20, 60, "Created by Thanh To", titleConfig);
+      this.add.text(20, 60, "Music, Art, and Programming by Thanh To", titleConfig);
       this.add.text(20, 500, "Press space bar to to jump\n Press -> to start game", titleConfig);
       keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+      keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
     }
     update() {
-        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+        if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
           // easy mode
         //   game.settings = {
         //     spaceshipSpeed: 5,

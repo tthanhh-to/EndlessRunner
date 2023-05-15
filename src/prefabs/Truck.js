@@ -8,6 +8,7 @@ class Truck extends Phaser.Physics.Arcade.Sprite {
         this.setVelocityX(-100);            // make it go!
         this.setImmovable();     
         this.body.allowGravity = false;
+        this.body.onCollide = true;
         // this.newTruck = true;                 // custom property to control Truck spawning
         // // scene.add.existing(this);   // add to existing, displayList, updateList
         //this.body.setSize(500,200);
@@ -16,11 +17,11 @@ class Truck extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
-        // add new Truck when existing Truck hits center X
-        if(this.newTruck && this.x < 300) {
+        if(this.newTruck && this.x < 350) {
             // (recursively) call parent scene method from this context
             this.parentScene.addTruck(this.parent, this.velocity);
             this.newTruck = false;
+            console.log("new truck");
         }
         // destroy paddle if it reaches the left edge of the screen
         if(this.x < -this.width) {

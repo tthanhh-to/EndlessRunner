@@ -1,9 +1,9 @@
 /*
  Thanh To
- game title
- approximate hours spent on project
- creative tilt justification
-help with sprites: https://www.youtube.com/watch?v=ElAmJj8Tfo8
+ Highway Hopper
+ 30+ hours
+ creative tilt: created the music for the game and am super proud of the art
+ help with sprites: https://www.youtube.com/watch?v=ElAmJj8Tfo8
  */
 // keep me honest
 'use strict';
@@ -20,7 +20,7 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            //debug: true,
             gravity: {
                 x: 0,
                 y: 0
@@ -33,4 +33,4 @@ let config = {
 
 // define game
 let game = new Phaser.Game(config);
- let keySPACE;
+let keySPACE,keyRIGHT;
