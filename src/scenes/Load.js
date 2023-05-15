@@ -21,6 +21,7 @@ class Load extends Phaser.Scene {
         this.load.image('plx_back', 'background1.png');
         this.load.image('platform', 'truck.png');
         this.load.image('window','window.png');
+        this.load.audio('play_music', 'highwayhopper_music.wav');
     }
 
     create() {
